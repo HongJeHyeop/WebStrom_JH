@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li id="apple">APPLE</li>
+        <li id="banana">BANANA</li>
+        <li id="orange">ORANGE</li>
+    </ul>
+
+</body>
+</html>
+<script>
+    const lists = document.getElementsByTagName('li')
+    for(let i = 0; i < lists.length; i++){
+        lists.item(i).style.fontSize = '3em';
+        lists.item(i).style.fontWeight = 'bold'; //font-weight: bold;
+    }
+    
+    const bananaLi = document.getElementById('banana');
+    console.log(bananaLi);
+    bananaLi.style.color = 'red';
+</script>

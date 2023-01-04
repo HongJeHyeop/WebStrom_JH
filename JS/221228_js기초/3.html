@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    //******************함수************************//
+    /*function 함수명(){
+        실행문
+    }*/
+    // 1번째 - 기본함수
+    function func1() {
+        console.log('func1 실행!');
+    }
+
+    func1();
+
+    // 2번째 - 인수와 매개변수
+    function func2(name, addr = '대구') {
+        console.log('func2 실행!');
+        console.log('제 이름은 ' + name + '입니다.');
+        console.log('주소는 ' + addr + '입니다.');
+    }
+
+    func2('홍제협', '대구 중구');
+    func2('홍길동', '부산 중구');
+    func2('홍길길', '마산 중구');
+
+    // 3번째 - 반환형(return)
+    function func3() {
+        let a = 10;
+        let b = 30;
+        let sum = a + b;
+        return sum;
+    }
+
+    let result = func3();
+    console.log(result);
+
+    // 4번째 - 전부 다 있는 경우
+    function func4(a, b) {
+        let sum = a + b;
+        if (sum < 20) {
+            return '작음';
+        }
+        return '큼';
+    }
+
+    let message = func4(1, 10);
+    console.log('20보다 ' + message);
+
+
+</script>
+<body>
+
+</body>
+</html>

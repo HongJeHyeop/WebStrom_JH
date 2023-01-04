@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    // 1. 정수 배열 numbers가 매개변수로 주어집니다.
+    // numbers의 원소 중 두 개를 곱해 만들 수 있는 최댓값을 return하도록 problem1 함수를 완성해주세요.
+    const numbers = [1, 2, -3, 4, -5]; // 15
+    const numbers2 = [10, 20, 30, 5, 5, 20, 5]; // 600
+    console.log(problem1(numbers));
+    console.log(problem1(numbers2));
+    //2. 문자열 my_string과 문자 letter이 매개변수로 주어집니다.
+    // my_string에서 letter를 제거한 문자열을 return하도록 problem2 함수를 완성해주세요.
+    console.log(problem2("abcdef", 'f'))//"abcde"
+    console.log(problem2("BCBdbe", 'B')); //"Cdbe"
+    //3. 정수 배열 numbers가 매개변수로 주어집니다.
+    // numbers의 원소의 평균값을 return하도록 problem3 함수를 완성해주세요.
+    console.log(problem3([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 5.5
+    console.log(problem3([89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99])); // 94.0
+    //4. 문자열 my_str과 n이 매개변수로 주어질 때,
+    // my_str을 길이 n씩 잘라서 저장한 배열을 return하도록 problem4 함수를 완성해주세요.
+    console.log(problem4("abc1Addfggg4556b", 6)); //["abc1Ad", "dfggg4", "556b"]
+    console.log(problem4("abcdef123", 3)); //["abc", "def", "123"]
+
+
+    function problem1(arr) {
+        arr.sort((a , b) => a - b);
+        console.log(arr)
+        return  arr[0] * arr[1] < arr[arr.length - 1] * arr[arr.length - 2] ? arr[arr.length - 1] * arr[arr.length - 2] : arr[0] * arr[1]
+        /*******************************************************/
+        /*let newArr = []
+        for(let i = 0; i <arr.length; i++){
+            for (let j = i + 1; j < arr.length; j++){
+                newArr.push(arr[i] * arr[j])
+            }
+        }
+
+        /***********************************************/
+        /*
+        let max = newArr[0];
+        for(let i = 0; i < newArr.length; i++){
+            if (max < newArr[i]){
+                max = newArr[i];
+            }
+        }
+        return max;*/
+        /*return Math.max(...newArr)*/
+    }
+
+    function problem2(my_string, letter) {
+        return my_string.replaceAll(letter, "");
+    }
+
+
+    function problem3(numbers) {
+        let num = 0;
+        numbers.forEach((a) => {
+            num += a
+        })
+        /*for (let i = 0; i < numbers.length; i++) {
+            // num = numbers[i]
+            num += numbers[i]
+        }*/
+        num = num / numbers.length
+        return num;
+
+    }
+
+    function problem4(my_str, n) {
+        const arr = []
+        for (let i = 0; i < my_str.length; i += n ){
+            arr.push(my_str.substring(i, i + n));
+        }
+        return arr
+
+
+
+        /*const result = []
+        // n의 길이의 result를 만들기 위해 전체길이 / n 번 반복
+        for(let i = 0 ; i < (my_str.length/n) ; i ++) {
+            let part = ''
+            // 각 저장요소 별 내용 입력
+            for(let j = i*n ; j < i*n+n ; j ++) {
+                if(my_str[j]) part+=my_str[j]
+                else break
+            }
+            result.push(part)
+        }
+        return result*/
+    }
+
+</script>
+
+
+<body>
+
+</body>
+</html>

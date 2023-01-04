@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  LI요소의 첫 요소에 id='first' 속성을 삽입하라.
+  LI의 두번째 요소를 삭제하라.
+  LI요소의 마지막 요소에 active 속성을 추가하라.
+  LI요소에 id가 first라면, 빨간색으로 표시하라.
+  active속성이 있는 것들은 font-size를 2em으로 설정하라.
+  위 적용이 끝난 후, 아래 ul과 동일한 ul을 body 마지막에 추가하라
+  <ul>
+    <li>LIST1</li>
+    <li>LIST2</li>
+    <li>LIST3</li>
+  </ul>
+</body>
+</html>
+<script>
+  /******* 모범답안 *******/
+  const ul = document.getElementsByTagName('ul').item(0);
+  ul.firstElementChild.setAttribute('id','first');
+  ul.children.item(1).remove();
+  ul.lastElementChild.toggleAttribute('active');
+
+  const lies = document.getElementsByTagName('li');
+  for(let i = 0; i < lies.length; i++){
+    if(lies.item(i).id === 'first'){
+      lies.item(i).style.color = 'red';
+    }
+    if(lies.item(i).getAttribute('active') !== null){
+      lies.item(i).style.fontSize = '2em';
+    }
+  }
+
+  /*for(let i = 0; i < lies.length; i++){
+    if(lies.item(i).id === 'first'){
+      lies.item(i).style.color = 'red';
+    }
+  }*/
+
+  document.body.appendChild(ul.cloneNode(true));// ul 그대로 복사
+  // document.body.insertAdjacentElement('beforeend', ul.cloneNode(true));// ul 그대로 복사
+  // document.body.insertAdjacentHTML('beforeend',ul.innerHTML);
+
+
+
+
+  /******* 내가작성 *******/
+ /* const li = [...document.getElementsByTagName('li')];
+  li[0].id = 'first';
+  li[1].remove();
+  console.log(li)
+  li[2].toggleAttribute('active', true)
+
+  const first = document.getElementById('first')
+  first.style.color = 'red';
+
+  if(li[i].hasAttribute('active') === true){
+    li[i].
+  }
+*/
+
+
+
+</script>

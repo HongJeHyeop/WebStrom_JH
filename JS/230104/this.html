@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="button_click()">클릭1</button>
+<button onclick="button_click2(this)">클릭2</button>
+<button id="button">클릭3</button>
+<button id="button4">클릭4</button>
+</body>
+</html>
+<script>
+    // this : 자신이 속한 객체를 가리키는 식별자
+    // this 바인딩 => 식별자와 값(객체)를 연결한다.
+
+    // 1. 전역에서 this를 사용하면 window객체를 가리킴
+    console.log(this);
+
+    // 2. 일반 함수내에서 this는 window를 가리킴
+    square(2);
+
+    function square(number) {
+        console.log(this);
+        return number * number;
+    }
+
+    // 3. 객체 안의 메서드에서의 this는 해당 객체(호출한객체)를 가리킴
+    const person = {
+        name: "KIM",
+        this: this, //window객체를 가리킴
+        getName: function () {
+            console.log(this);
+        }
+    }
+    console.log(person.this);
+    person.getName();
+
+    // 4. 생성자 함수 내부에서의 this 생성자 함수가 생성할 인스턴스를 가리킴
+    function Person(name) {
+        this.name = name;
+        console.log(this);
+    }
+
+    const p = new Person("sw"); // 생성자 함수로서의 호출
+
+    // 5. 화살표함수에서의 this는 window객체를 가리킴
+    const test = () => {
+        console.log(this);
+    }
+    test();
+
+    // 이벤트 내부에서의 this
+    function button_click() {
+        console.log('클릭되었음!');
+        console.log(this); // 전역객체인 this를 가리킴(window)
+    }
+
+    // HTML의 요소에 onclick등 이벤트 함수를 적용할 때, this로 인수전달했을 시
+    // 해당 this에는 해당 이벤트 요소가 binding되어서 전달된다
+    function button_click2(object) {
+        console.log(object);
+        console.log(this); // 전역객체인 this를 가리킴(window)
+    }
+
+    // 함수의 인자에는 click이벤트에 대한 객체가 들어온다
+    function click(event){
+        // addEventListenner에서 binding한 함수에서 this는 이벤트가 발생한 DOM요소를 가리킴
+        console.log(event.currentTarget);
+        console.log(this);
+        console.log(this === event.currentTarget);
+    }
+    const button = document.getElementById('button');
+    button.addEventListener('click', click);
+
+    // addEventListener로 등록한 객체에서 화살표 함수로 함수 정의했다면
+    // this가 DOM요소를 가리키는 것이 아니라, window 객체를 가리킨다.
+    const button4 = document.getElementById('button4');
+    button4.addEventListener('click',(e) => {
+        console.log(this);
+        console.log(e.currentTarget)
+    })
+
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 전파</title>
+</head>
+<style>
+    body > div{
+        background-color: aliceblue;
+        width: 200px;
+        height: 200px;
+    }
+    div > div {
+        border: 3px solid black;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+<div>
+    부모임
+    <div>자식1</div>
+    <div>자식2</div>
+</div>
+</body>
+</html>
+<script>
+    // true 캡처링 => window객체에서 출발해서 이벤트가 발생한 요소까지 전파
+    // false 버블링 => 이벤트가 발생한 자식 노드에서 부모인 window객체까지 전파된다.
+    const [parentDiv, child1, child2] = document.getElementsByTagName('div')
+    parentDiv.addEventListener('click', () => {
+        console.log('부모가 클릭되었음!');
+    }, false);
+    parentDiv.addEventListener('click', (e) => {
+        console.log('발생한 이벤트 객체', e.currentTarget)
+        console.log('부모가 클릭되었음!');
+    }, true);
+    child2.addEventListener('click', (e) => {
+        console.log('이벤트가 등록된 객체', e.currentTarget)
+        console.log('자식이 클릭되었음');
+    },false)
+
+
+
+</script>

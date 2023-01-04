@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    ID <input type="text" name="id"> <br/>
+    PW <input type="text" name="password"> <br/>
+    보내기 <input type="submit">
+</form>
+<form name="second" action="2.html">
+    <select name="select">
+        <option value="t1">TEST1</option>
+        <option value="t2">TEST2</option>
+        <option value="t3">TEST3</option>
+    </select><br/>
+    보내기 <input type="submit">
+</form>
+</body>
+</html>
+<script>
+  location.href = '2.html' // 바로 이동
+    const firstForm = document.forms.item(0);
+    firstForm.action = '2.html'; // form에 action을 추가
+    firstForm.method = 'post'; // form에 method를 추가
+    firstForm.submit(); // 제출 버튼 누른것과 같은 효과
+</script>

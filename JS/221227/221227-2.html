@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+  if(confirm('새로운창을 여시겠습니까?')){
+    window.open('http://www.naver.com', '_self');
+  }
+  alert('알겠습니다.');
+
+  // 경고창을 띄움
+  window.alert('경고!'); // window 생략가능
+  // console창에 로그를 띄운다 (출력)
+  window.console.log('로그'); // window생략가능
+  const result = confirm('확인하시겠습니까?');
+  const message = prompt('메세지입니다', '기본값');
+  console.log(result);
+  console.log(message);
+  // window.close();
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    //********************* 반복문 *********************//
+    // for, while
+    // while(조건){
+    //      반복실행문
+    //}
+    let number = 10;
+    while (number < 12) {// 조건이 맞으면 실행
+        console.log('12보다 작아요');
+        number++; // number = number +1, number += 1
+    }
+
+    // for
+    // for(초기화식; 조건식; 증감식){반복실행문}
+    // 초기화식 => 변수 생성
+    // 조건식 => 반복문이 실행될 조건을 결정. true일때 한번 실행
+    // 증감식 => 변수 값 변경
+    for (let i = 0; i < 5; i++) {
+        console.log(i)
+    }
+    // break : 그 즉시 반복문을 종료
+    // continue : while => 반복문의 조건문으로 즉시 이동, for => 반복문의 증감식으로 즉시 이동
+    let deathFlag = false;
+    first:for (let i = 0; i < 20; i++) {
+        second:for (let j = 0; j < 100; j++) {
+            console.log('실행');
+            // break;
+            /*continue;
+            console.log('asdfasdf')*/
+        }
+        // console.log('실행');
+    }
+
+</script>
+<body>
+
+</body>
+</html>

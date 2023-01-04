@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = () => {
+        const div = document.getElementsByTagName('div').item(0);
+        div.addEventListener('click', clickDiv);
+        div.addEventListener('mousedown', () => {
+            console.log('마우스가 눌려짐');
+        })
+        div.addEventListener('mouseup', (e) => {
+            console.log('마우스가 떼짐');
+        })
+        function clickDiv(e) {
+            console.log('클릭되었음');
+        }
+
+        /** offsetX, offsetY **/
+        // 이벤트 객체 대상을 기준으로 하는 X,Y위치. 모니터, 브라우저 크기 등 전부 상관없음.
+        // 이벤트 객체의 왼쪽 위 모서리가 (0,0)좌표가 된다
+
+         /** clientX, clientY **/
+         // 브라우저 페이지에서의 X, Y의 위치, 스크롤은 무시하고 현재 보이는 위치를 가져옴
+         // 스크롤위치 영향 받지 않음
+
+         /** pageX, pageY **/
+         // 브라우저 페이지에서의 X,Y위치, 스크롤 화면을 포함해서 측정하기 때문에 스크롤 위치에 영향받음
+
+         /** screenX, screenY **/
+         // 모니터 화면을 기준으로 X, Y위치, 따라서 브라우저 창 위치에 따라 영향을 받음
+         // 모니터 전체 화면을 기준으로 좌표를 측정함
+
+
+    };
+</script>
+<style>
+    div {
+        cursor: pointer;
+        width: 250px;
+        height: 250px;
+        color: white;
+        background-color: black;
+    }
+</style>
+<body>
+<div>
+    클릭하세요~
+</div>
+</body>
+</html>

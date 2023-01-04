@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+  const map = new Map([['key1', 'value1'],['key2', 'value2']]);
+  console.log(map)
+  console.log("맵에 들어있는 요소의 개수: ", map.size);
+  // map 객체의 요소는 key, value를 한 쌍으로 가진다
+  const map2 = new Map();
+  map2.set(1, true);
+  map2.set('test', 'javascript');
+  map2.set('obj', {'a': 'a값', 'b': 'b값'})
+  console.log(map2);
+  console.log(map2.get('obj')) // 값을 가져올때는 key값을 통해서 가져옴
+
+  const set = new Set();
+  set.add(1);
+  set.add(2);
+  set.add(3);
+  set.add(1);
+  set.add(2);
+  console.log(set)
+
+</script>
+<body>
+
+</body>
+</html>

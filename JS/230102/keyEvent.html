@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeyEvent</title>
+</head>
+<script>
+    window.onload = () => {
+        const span = document.body.firstElementChild
+        document.addEventListener('keydown', (event) => {
+            span.textContent = event.key;
+        })
+    }
+</script>
+
+<style>
+    span {
+        font-size: 10em;
+    }
+</style>
+
+
+<body>
+<span>눌린 키가 여기에 표시됩니다!</span>
+</body>
+</html>

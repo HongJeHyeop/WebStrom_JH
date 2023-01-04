@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse이벤트 Drag</title>
+</head>
+<script>
+    // 문서 로딩이 끝나면 안의 스크립트 실행
+    window.onload = () => {
+        // 드래그 대상 요소
+        const box = document.getElementById('box');
+        // 드래그 시작 지점의 마우스 위치
+        const initMousePos = {x: 0, Y: 0}
+        // 마우스가 이동할 거리
+        const offset = {x:0, y:0};
+
+        // 마우스 이동 이벤트가 발생할 시 실행될 코드
+        const mouseMove = event => {
+            // 현재 드래그하는 시점의 마우스 위치를 계산
+            offset.x = event.clientX - initMousePos.x;
+            offset.y = event.clientY - initMousePos.y;
+            // 현재 드래그하는 시점의 마우스 위치로 박스를 이동시킨다.(CSS조작)
+            box.style.transform = `translate(${offset.x}px, ${offset.y}px)`
+        }
+
+        // 마우스가 눌렸을시
+        box.addEventListener('mousedown', event => {
+            initMousePos.x = event.clientX - offset.x;
+            initMousePos.y = event.clientY - offset.y;
+
+            // 마우스가 클릭된 채로 이동되었을 시
+            document.addEventListener('mousemove', mouseMove);
+        });
+
+        // 사용자가 마우스를 떼었을때, 마우스 이동 이벤트를 삭제한다.
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove',mouseMove);
+        })
+
+
+
+    }
+</script>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: #fc8c8c;
+        border: 3px solid black;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div id="box"></div>
+</body>
+</html>

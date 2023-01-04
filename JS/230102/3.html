@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 처리</title>
+</head>
+<body>
+
+<button onclick="click1()">여기 눌러봐요~</button>
+<button>여기도 눌러봐요</button>
+<button>세번째 버튼도 눌러봐요</button>
+
+</body>
+</html>
+
+<script>
+    window.onload = () => {
+        const [btn1, btn2, btn3] = document.getElementsByTagName('button');
+
+        btn2.onclick = click2;
+
+        btn3.addEventListener('click', click3);
+
+        function click1() {
+            console.log('btn1이 클릭되었음');
+        }
+
+        function click2() {
+            console.log('btn2가 클릭되었음');
+        }
+
+        function click3() {
+
+            console.log('btn3이 클릭되었음');
+        }
+    }
+
+
+</script>

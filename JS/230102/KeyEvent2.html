@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    window.onload = () => {
+        const span = document.getElementsByTagName('span').item(0);
+        const textArea = document.getElementsByTagName('textarea').item(0);
+        const img = document.getElementsByTagName('img').item(0);
+        // console.log(img.draggable);
+        img.ondragstart = (e) => {e.preventDefault();}
+
+
+        textArea.addEventListener('keydown',change_text);
+        textArea.addEventListener('keyup',change_text);
+        textArea.addEventListener('keypress', change_text);
+        textArea.onchange = change_text();
+
+        function change_text() {
+            const count = textArea.value.length;
+            if(count >= 5) {
+                textArea.value = textArea.value.slice(0, 200)
+            }
+
+            span.textContent = count + '/200';
+        }
+
+    }
+</script>
+<style>
+    textarea {
+        font-size: 3em;
+    }
+
+    span {
+        font-size: 3em;
+    }
+</style>
+<body>
+<textarea cols="30" rows="10" placeholder="댓글을 입력하세요" maxlength="200"></textarea>
+<span>0/200</span>
+<img src="HTML/resources/펭수.jpg" alt="asd">
+</body>
+</html>
